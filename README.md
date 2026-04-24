@@ -1,43 +1,58 @@
-# Registration Form Project
+# Integrated Login & Registration System
 
-A simple web registration form built with HTML, CSS, JavaScript, and PHP, using MySQL for data storage.
+A complete user management system featuring user registration, secure login authentication, and a personalized dashboard. This project is built using PHP and MySQL, with a focus on security and a clean user interface.
 
-## Features
-- **Frontend:** Responsive form with CSS styling.
-- **Validation:** JavaScript to ensure First and Last names are provided before submission.
-- **Backend:** PHP script to handle form data and sanitize inputs.
-- **Database:** MySQL integration to store user information.
+## 🚀 Features
+- **Modern UI:** Clean, card-based design for login and registration forms.
+- **Secure Authentication:** Uses `password_hash()` (BCRYPT) to securely store user credentials.
+- **Session Protection:** The Dashboard is protected; only authenticated users can view it.
+- **Auto-Setup:** Includes a `setup.php` script to automatically initialize the database and tables.
+- **Port Compatibility:** Pre-configured to work with MySQL on Port 3307 (common XAMPP fix).
 
-## Prerequisites
-- XAMPP (Apache and MySQL).
-- A web browser.
+## 🛠 Technologies Used
+- **Frontend:** HTML5, CSS3, JavaScript
+- **Backend:** PHP (MySQLi with Prepared Statements)
+- **Database:** MySQL (MariaDB)
 
-## Setup Instructions
-1. **Database:** 
-   - Open XAMPP Control Panel and start Apache and MySQL.
-   - Go to `http://localhost/phpmyadmin/`.
-   - Create a database named `test_db`.
-   - Import the `users` table using the following SQL:
-     ```sql
-     CREATE TABLE users (
-         id INT AUTO_INCREMENT PRIMARY KEY,
-         first_name VARCHAR(50),
-         last_name VARCHAR(50),
-         department VARCHAR(50),
-         gender VARCHAR(10),
-         hobbies VARCHAR(255),
-         others TEXT,
-         reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-     );
-     ```
-2. **Configuration:** 
-   - Ensure the database name in `register.php` matches the one in phpMyAdmin.
-3. **Run:** 
-   - Place all files in `C:/xampp/htdocs/registration_folder/`.
-   - Access the project at `http://localhost/registration_folder/index.php`.
+## 📋 Prerequisites
+- **XAMPP** (Apache and MySQL).
+- Ensure your MySQL is running. If Port 3306 is blocked, follow the setup for **Port 3307**.
 
-## Technologies Used
-- HTML5 / CSS3
-- JavaScript
-- PHP
-- MySQL
+## ⚙️ Setup & Installation
+
+### 1. Folder Structure
+Place all project files in the following directory:
+`C:/xampp/htdocs/Engineering_Web_Based_Projects-/`
+
+### 2. Database Initialization
+This project features an automated setup. You do **not** need to use phpMyAdmin manually.
+1. Open XAMPP and start **Apache** and **MySQL**.
+2. Open your browser and visit:  
+   `http://localhost/Engineering_Web_Based_Projects-/setup.php`
+3. The script will create the `login_system_db` database and the `users` table automatically.
+
+### 3. Port Configuration (If Required)
+If your MySQL is running on Port 3307, the files `db.php` and `setup.php` are already configured to use:
+- **Server:** `127.0.0.1:3307`
+- **User:** `root`
+- **Password:** `""` (Empty)
+
+## 📂 Project Structure
+- `index.php` / `register.php`: The registration form and data processing.
+- `login.php`: The login interface and authentication logic.
+- `dashboard.php`: The restricted area visible only after logging in.
+- `db.php`: Central database connection file.
+- `setup.php`: Script to build the database environment.
+- `logout.php`: Ends the user session and redirects to login.
+- `style.css`: Contains all visual styling for the project.
+
+## 🖥️ Usage
+1. **Register:** Go to `register.php` to create a new account.
+2. **Login:** Use your new username and password at `login.php`.
+3. **Dashboard:** Upon successful login, you will be greeted by name on the `dashboard.php` page.
+4. **Logout:** Click the logout button to securely exit your session.
+
+## 🔒 Security Features
+- **SQL Injection Prevention:** All database queries use Prepared Statements.
+- **Password Security:** Passwords are never stored in plain text; the system uses BCRYPT hashing.
+- **Access Control:** `session_start()` is used to prevent unauthorized URL access to the dashboard.
