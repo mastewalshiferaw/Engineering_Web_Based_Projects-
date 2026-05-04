@@ -85,6 +85,78 @@ body {
     background: #0099cc;
 }
 
+/* About Section Styling */
+.about {
+    padding: 100px 10%;
+    background-color: #ffffff;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-top: 30px;
+}
+
+.about-image img {
+    width: 300px;
+    height: 300px;
+    border-radius: 15px;
+    object-fit: cover;
+    box-shadow: 10px 10px 0px #00d2ff; /* Creative shadow effect */
+}
+
+.about-text h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #1a1a2e;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+/* Skills List */
+.skills h4 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: 10px;
+}
+
+.skills-list li {
+    background: #e0f7fa;
+    color: #007c91;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/* Responsive for About Section */
+@media (max-width: 900px) {
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .skills-list {
+        justify-content: center;
+    }
+
+    .about-image img {
+        width: 250px;
+        height: 250px;
+    }
+}
+
 /* Projects Section */
 .projects {
     padding: 80px 10%;
